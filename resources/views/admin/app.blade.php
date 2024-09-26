@@ -45,7 +45,40 @@
                     <li class="menu-item">
                         <a href="#" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-home"></i>
-                            <div data-i18n="Menu 1">Menu 1</div>
+                            <div data-i18n="Menu 1">Human Resource</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('submenu1') }}" class="menu-link">
+                                    <div>Departemant</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('roles.index') }}" class="menu-link">
+                                    <div data-i18n="Sub Menu 2">Employees</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('roles.index') }}" class="menu-link">
+                                    <div data-i18n="Sub Menu 2">Payrol</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('roles.index') }}" class="menu-link">
+                                    <div data-i18n="Sub Menu 2">Leave</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('roles.index') }}" class="menu-link">
+                                    <div data-i18n="Sub Menu 2">Presence</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                    <a href="#" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-home"></i>
+                            <div data-i18n="Menu 1">User Management</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
@@ -60,11 +93,6 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-menu"></i>
-                            <div data-i18n="Menu 2">Menu 2</div>
-                        </a>
                     </li>
                 </ul>
             </aside>
