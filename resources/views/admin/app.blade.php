@@ -44,12 +44,14 @@
                     </li>
                     <li class="menu-item">
                         <a href="#" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-home"></i>
+                            <i class="menu-icon tf-icons bx bx-home" style="color: #007bff;"></i>
                             <div data-i18n="Menu 1">Human Resource</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="{{ route('submenu1') }}" class="menu-link">
+                            
+                            <li class="menu-item ">
+                                <a href="{{ route('departments.index') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-home" style="color: #007bff;"></i>
                                     <div>Departemant</div>
                                 </a>
                             </li>
