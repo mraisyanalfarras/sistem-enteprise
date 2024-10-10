@@ -21,34 +21,29 @@ use Illuminate\Support\Facades\Route;
 
 // Redirect to login if user is not authenticated
 Route::get('/', function () {
-    if (auth()->check()) {
-        return redirect('/dashboard');
-    }
-    return redirect('/login');
+    return redirect('/dashboard');
 });
 
 // Dashboard route, only accessible by authenticated users
 Route::get('/dashboard', function () {
     return view('admin.blank.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
 
 
     // Route untuk Submenu 1
 Route::get('/submenu1', [AdminController::class, 'submenu1'])->name('submenu1');
 
-Route::resource('users', UserController::class)->middleware('auth');
+Route::resource('users', UserController::class);
 
-Route::resource('roles', RoleController::class)->middleware('auth');
+Route::resource('roles', RoleController::class);
 
-Route::resource('departments', DepartmentController::class)->middleware('auth');
+Route::resource('departments', DepartmentController::class);
 
-route::resource('employees', EmployeeController::class)->middleware('auth');
+route::resource('employees', EmployeeController::class);
 
-route::resource('payroll', PayrollController::class)->middleware('auth');
+route::resource('payroll', PayrollController::class);
 
 
 
-// Auth routes (login, register, password reset, etc.)
-require __DIR__.'/auth.php';
 
 
