@@ -16,23 +16,17 @@ class EmployeeSeeder extends Seeder
     {
         $employees = [
             [
+                'user_id' => 1,
+                'department_id' => 1,
                 'address' => 'jl.santai',
                 'place_of_birth' => 'oekanbaru',
-                'dob' =>'_',
-                'religion' => '_',
-                'sex' => '_',
-                'phone' => '_',
-                'salary' => '_',
+                'dob' =>'2004-12-02',
+                'religion' => 'Islam',
+                'sex' => 'Male',
+                'phone' => '1231412',
+                'salary' => '010910239',
             ],
-            [
-                'address' => 'jl.mantan',
-                'place_of_birth' => 'jakarta',
-                'dob' =>'_',
-                'religion' => '_',
-                'sex' => '_',
-                'phone' => '_',
-                'salary' => '_',
-            ],
+            
         ];
         
        foreach($employees as $employee) {
