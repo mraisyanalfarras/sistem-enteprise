@@ -2,64 +2,51 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Emlpoyee;
+use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Department;
+use App\Models\User;
 
-class EmlpoyeeController extends Controller
+class EmployeeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
+        // Fetch employees with their related users and departments
+        $employees = Employee::with(['user', 'department'])->paginate(10);
         
+        return view('admin.employees.index', compact('employees'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $users = User::select('id', 'name')->get();
+        $departments = Department::select('id', 'name')->get();
+
+        return view('admin.employees.create', compact('users', 'departments'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        // Validasi dan simpan data employee...
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Emlpoyee $emlpoyee)
+    public function edit($id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+        $users = User::select('id', 'name')->get();
+        $departments = Department::select('id', 'name')->get();
+
+        return view('admin.employees.edit', compact('employee', 'users', 'departments'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Emlpoyee $emlpoyee)
+    public function update(Request $request, $id)
     {
-        //
+        // Validasi dan update data employee...
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Emlpoyee $emlpoyee)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Emlpoyee $emlpoyee)
-    {
-        //
+        // Hapus employee...
     }
 }
