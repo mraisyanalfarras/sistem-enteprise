@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -35,13 +36,15 @@ Route::get('/dashboard', function () {
     // Route untuk Submenu 1
 Route::get('/submenu1', [AdminController::class, 'submenu1'])->name('submenu1');
 
-Route::resource('users', UserController::class);
+Route::resource('users', UserController::class)->middleware('auth');
 
-Route::resource('roles', RoleController::class);
+Route::resource('roles', RoleController::class)->middleware('auth');
 
-Route::resource('departments', DepartmentController::class);
+Route::resource('departments', DepartmentController::class)->middleware('auth');
 
-route::resource('employees', EmployeeController::class);
+route::resource('employees', EmployeeController::class)->middleware('auth');
+
+route::resource('payroll', PayrollController::class)->middleware('auth');
 
 
 

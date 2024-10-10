@@ -61,7 +61,7 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{ route('roles.index') }}" class="menu-link">
+                                <a href="{{ route('payroll.index') }}" class="menu-link">
                                     <div data-i18n="Sub Menu 2">Payrol</div>
                                 </a>
                             </li>
