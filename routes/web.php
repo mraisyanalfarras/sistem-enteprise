@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\PayrollController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,8 @@ Route::resource('departments', DepartmentController::class);
 route::resource('employees', EmployeeController::class);
 
 route::resource('payroll', PayrollController::class);
+
+Route::resource('leave', LeaveController::class);
 
 
 

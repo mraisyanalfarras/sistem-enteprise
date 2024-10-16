@@ -3,11 +3,16 @@
 <div class="container">
     <h1>Payroll List</h1>
     <a href="{{ route('payroll.create') }}" class="btn btn-primary">Add Payroll</a>
+
+      <!-- Search Field -->
+      <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search..." id="search">
+            </div>
     
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
-    <table class="table">
+    <table class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>ID</th>

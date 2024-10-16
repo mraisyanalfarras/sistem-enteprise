@@ -57,16 +57,19 @@
                             </li>
                             <li class="menu-item">
                                 <a href="{{ route('employees.index') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-group"></i>
                                     <div data-i18n="Sub Menu 2">Employees</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="{{ route('payroll.index') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-wallet"></i>
                                     <div data-i18n="Sub Menu 2">Payrol</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{ route('roles.index') }}" class="menu-link">
+                            <a href="{{ route('leave.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar"></i>
                                     <div data-i18n="Sub Menu 2">Leave</div>
                                 </a>
                             </li>
