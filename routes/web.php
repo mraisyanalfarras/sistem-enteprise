@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DepartmentController;
 
 /*
@@ -46,6 +47,8 @@ route::resource('payroll', PayrollController::class);
 
 Route::resource('leave', LeaveController::class);
 
+
+Route::resource('attendance', AttendanceController::class);
 
 
 

@@ -74,7 +74,8 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{ route('roles.index') }}" class="menu-link">
+                            <a href="{{ route('attendance.index') }}" class="menu-link">
+                                 <i class="menu-icon tf-icons bx bx-time-five"></i>
                                     <div data-i18n="Sub Menu 2">Presence</div>
                                 </a>
                             </li>
