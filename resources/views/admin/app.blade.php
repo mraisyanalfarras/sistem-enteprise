@@ -76,24 +76,27 @@
                             <li class="menu-item">
                             <a href="{{ route('attendance.index') }}" class="menu-link">
                                  <i class="menu-icon tf-icons bx bx-time-five"></i>
-                                    <div data-i18n="Sub Menu 2">Presence</div>
+                                    <div data-i18n="Sub Menu 2">Attendance</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
+                    <!-- User Management -->
                     <li class="menu-item">
-                    <a href="#" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-home"></i>
-                            <div data-i18n="Menu 1">User Management</div>
+                        <a href="#" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-user" style="color: #007bff;"></i> <!-- Ikon diubah menjadi biru -->
+                            <div style="color: #ff5733;" data-i18n="Menu 1">User Manajemen</div> <!-- Warna diubah menjadi oranye -->
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="{{ route('submenu1') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-group"></i> <!-- Ikon untuk Users -->
                                     <div>Users</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="{{ route('roles.index') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-shield-alt"></i> <!-- Ikon untuk Roles -->
                                     <div data-i18n="Sub Menu 2">Roles</div>
                                 </a>
                             </li>
