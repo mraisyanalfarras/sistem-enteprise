@@ -28,39 +28,44 @@ class EmployeeController extends Controller
     }
 
     public function store(Request $request)
-{
-    // Validasi input
-    $request->validate([
-        'user_id' => 'required|exists:users,id',
-        'department_id' => 'required|exists:departments,id',
-        'address' => 'required|string|max:255',
-        'place_of_birth' => 'nullable|string|max:255',
-        'dob' => 'nullable|date',
-        'religion' => 'required|in:Islam,Katolik,Protestan,Hindu,Budha,Konghucu',
-        'sex' => 'required|in:Male,Female',
-        'phone' => 'required|string|max:15',
-        'salary' => 'required|numeric',
-    ]);
+    {
+        // Validasi input
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'department_id' => 'required|exists:departments,id',
+            'address' => 'required|string|max:255',
+            'place_of_birth' => 'nullable|string|max:255',
+            'dob' => 'nullable|date',
+            'religion' => 'required|in:Islam,Katolik,Protestan,Hindu,Budha,Konghucu',
+            'sex' => 'required|in:Male,Female',
+            'phone' => 'required|string|max:15',
+            'salary' => 'required|numeric',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Validasi foto
+        ]);
 
-    // Insert employee baru ke dalam database
-    DB::table('employees')->insert([
-        'user_id' => $request->user_id,
-        'department_id' => $request->department_id,
-        'address' => $request->address,
-        'place_of_birth' => $request->place_of_birth,
-        'dob' => $request->dob,
-        'religion' => $request->religion,
-        'sex' => $request->sex,
-        'phone' => $request->phone,
-        'salary' => $request->salary,
-        'created_at' => now(),
-        'updated_at' => now(),
-    ]);
+        // Cek apakah ada file foto yang diupload
+        $photoPath = null;
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('photos', 'public'); // Simpan foto di folder 'photos' di storage
+        }
 
-    // Redirect dengan pesan sukses
-    return redirect()->route('employees.index')->with('success', 'Employee created successfully.');
-}
+        // Insert employee baru ke dalam database
+        Employee::create([
+            'user_id' => $request->user_id,
+            'department_id' => $request->department_id,
+            'address' => $request->address,
+            'place_of_birth' => $request->place_of_birth,
+            'dob' => $request->dob,
+            'religion' => $request->religion,
+            'sex' => $request->sex,
+            'phone' => $request->phone,
+            'salary' => $request->salary,
+            'photo' => $photoPath, // Simpan path foto
+        ]);
 
+        // Redirect dengan pesan sukses
+        return redirect()->route('employees.index')->with('success', 'Employee created successfully.');
+    }
 
     public function edit($id)
     {
@@ -84,10 +89,19 @@ class EmployeeController extends Controller
             'sex' => 'required|in:Male,Female',
             'phone' => 'required|string|max:15',
             'salary' => 'required|numeric',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Validasi foto
         ]);
-    
+
+        $employee = Employee::findOrFail($id);
+
+        // Cek apakah ada file foto yang diupload
+        $photoPath = $employee->photo; // Menyimpan path foto sebelumnya
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('photos', 'public'); // Simpan foto baru di folder 'photos' di storage
+        }
+
         // Update employee berdasarkan ID
-        DB::table('employees')->where('id', $id)->update([
+        $employee->update([
             'user_id' => $request->user_id,
             'department_id' => $request->department_id,
             'address' => $request->address,
@@ -97,21 +111,26 @@ class EmployeeController extends Controller
             'sex' => $request->sex,
             'phone' => $request->phone,
             'salary' => $request->salary,
-            'updated_at' => now(),
+            'photo' => $photoPath, // Update path foto
         ]);
-    
+
         // Redirect dengan pesan sukses
         return redirect()->route('employees.index')->with('success', 'Employee updated successfully.');
     }
-    
+
+    public function show($id)
+{
+    $employee = Employee::with('user', 'department')->findOrFail($id);
+    return view('admin.employees.show', compact('employee'));
+}
+
 
     public function destroy($id)
     {
         // Hapus employee berdasarkan ID
-        DB::table('employees')->where('id', $id)->delete();
-    
+        Employee::destroy($id);
+
         // Redirect dengan pesan sukses
         return redirect()->route('employees.index')->with('success', 'Employee deleted successfully.');
     }
-    
 }

@@ -17,6 +17,7 @@ class Employee extends Model
         'sex',
         'phone',
         'salary',
+        'photo',          // Tambahkan 'photo' di sini
         'user_id',
         'department_id',
     ];

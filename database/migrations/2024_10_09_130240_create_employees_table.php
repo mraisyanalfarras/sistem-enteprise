@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string('address');
             $table->string('place_of_birth')->nullable();
             $table->date('dob')->nullable();
-            $table->enum('religion',['islam', 'Katolik', 'Protestan', 'Hindu', 'Budha', 'Konghucu']);
+            $table->enum('religion', ['islam', 'Katolik', 'Protestan', 'Hindu', 'Budha', 'Konghucu']);
             $table->enum('sex', ['Male', 'Female']);
             $table->string('phone');
             $table->string('salary');
+            $table->string('photo')->nullable(); // Menambahkan kolom untuk foto
             $table->timestamps();
         });
     }
