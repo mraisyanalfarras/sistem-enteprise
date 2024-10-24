@@ -9,6 +9,9 @@ use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DepartmentController;
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
+use PHPUnit\Framework\Attributes\Test;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +52,13 @@ Route::resource('leave', LeaveController::class);
 
 
 Route::resource('attendance', AttendanceController::class);
+Route::get('email', function(){
+
+    Mail::to('adi@gmail.com')
+    ->send(new TestMail());
+    return 'ok';
+});
+
 
 
 

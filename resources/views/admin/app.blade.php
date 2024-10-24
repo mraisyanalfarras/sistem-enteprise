@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>Laravel Admin Starter | Powered by Laravel 10, Bootstrap 5, Sneat Admin Template</title>
+    <title>Sistem Enterprise XavierVolt</title>
     <meta name="description" content="" />
 
     <!-- Include your custom styles here -->
@@ -27,7 +27,8 @@
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
                     <a href="{{ route('dashboard') }}" class="app-brand-link">
-                        <h1 class="h4">Laravel Admin Starter</h1>
+                        
+                        <h1 class="h4">Sistem Enterprise XavierVolt</h1>
                     </a>
 
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">

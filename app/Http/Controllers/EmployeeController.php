@@ -30,7 +30,10 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         // Validasi input
+        // Validasi input
         $request->validate([
+            'name' => 'required|string|max:255', // Validasi name untuk User
+            'email' => 'required|email|unique:users,email', // Validasi email untuk User
             'user_id' => 'required|exists:users,id',
             'department_id' => 'required|exists:departments,id',
             'address' => 'required|string|max:255',
@@ -40,8 +43,20 @@ class EmployeeController extends Controller
             'sex' => 'required|in:Male,Female',
             'phone' => 'required|string|max:15',
             'salary' => 'required|numeric',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Validasi foto
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:4000', // Validasi foto
         ]);
+
+                // simpan ke kedua tabel sekaligus
+        // simpan ke tabel user
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt('terserah')
+        ]);
+
+        // simpan ke tabel employee
+        $request->merge(['user_id' => $user->id]);
+        Employee::create($request->all());
 
         // Cek apakah ada file foto yang diupload
         $photoPath = null;
@@ -62,6 +77,8 @@ class EmployeeController extends Controller
             'salary' => $request->salary,
             'photo' => $photoPath, // Simpan path foto
         ]);
+
+
 
         // Redirect dengan pesan sukses
         return redirect()->route('employees.index')->with('success', 'Employee created successfully.');
@@ -89,7 +106,7 @@ class EmployeeController extends Controller
             'sex' => 'required|in:Male,Female',
             'phone' => 'required|string|max:15',
             'salary' => 'required|numeric',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Validasi foto
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:4000', // Validasi foto
         ]);
 
         $employee = Employee::findOrFail($id);

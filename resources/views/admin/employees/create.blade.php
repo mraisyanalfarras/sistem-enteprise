@@ -5,21 +5,19 @@
     <h1>Add New Employee</h1>
     <form action="{{ route('employees.store') }}" method="POST" enctype="multipart/form-data"> <!-- Tambahkan enctype -->
         @csrf
-        <!-- User Selection -->
-        <div class="form-group">
-            <label for="user_id">Select User</label>
-            <select name="user_id" class="form-control @error('user_id') is-invalid @enderror" required>
-                <option value="">-- Select User --</option>
-                @foreach($users as $user)
-                    <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
-                        {{ $user->name }}
-                    </option>
-                @endforeach
-            </select>
-            @error('user_id')
-                <span class="invalid-feedback" role="alert">{{ $message }}</span>
-            @enderror
+
+          <!-- User Name Input -->
+          <div class="form-group">
+            <label for="name">Enter User Name</label>
+            <input type="text" name="name" class="form-control" required>
         </div>
+
+        <!-- User Email Input -->
+        <div class="form-group">
+            <label for="email">Enter User Email</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+
 
         <!-- Department Selection -->
         <div class="form-group">
@@ -67,7 +65,7 @@
         <!-- Religion -->
         <div class="form-group">
             <label for="religion">Religion</label>
-            <select name="religion" class="form-control @error('religion') is-invalid @enderror">
+            <select name="religion" class="form-control @error('religion') is-invalid @enderror" required>
                 <option value="Islam" {{ old('religion') == 'Islam' ? 'selected' : '' }}>Islam</option>
                 <option value="Katolik" {{ old('religion') == 'Katolik' ? 'selected' : '' }}>Katolik</option>
                 <option value="Protestan" {{ old('religion') == 'Protestan' ? 'selected' : '' }}>Protestan</option>
@@ -83,7 +81,7 @@
         <!-- Gender -->
         <div class="form-group">
             <label for="sex">Gender</label>
-            <select name="sex" class="form-control @error('sex') is-invalid @enderror">
+            <select name="sex" class="form-control @error('sex') is-invalid @enderror" required>
                 <option value="Male" {{ old('sex') == 'Male' ? 'selected' : '' }}>Male</option>
                 <option value="Female" {{ old('sex') == 'Female' ? 'selected' : '' }}>Female</option>
             </select>
@@ -104,7 +102,7 @@
         <!-- Salary -->
         <div class="form-group">
             <label for="salary">Salary</label>
-            <input type="text" name="salary" class="form-control @error('salary') is-invalid @enderror" value="{{ old('salary') }}" required>
+            <input type="number" name="salary" class="form-control @error('salary') is-invalid @enderror" value="{{ old('salary') }}" required>
             @error('salary')
                 <span class="invalid-feedback" role="alert">{{ $message }}</span>
             @enderror
@@ -112,7 +110,7 @@
 
         <!-- Photo -->
         <div class="form-group">
-            <label for="photo">Photo</label>
+            <label for="photo" class="form-label">Upload Photo</label>
             <input type="file" name="photo" class="form-control-file @error('photo') is-invalid @enderror">
             @error('photo')
                 <span class="invalid-feedback" role="alert">{{ $message }}</span>
