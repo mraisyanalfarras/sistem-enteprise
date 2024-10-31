@@ -55,10 +55,6 @@
                                         </td>
                                         <td>{{ $sendPromotion->sent_at }}</td>
                                         <td>
-                                            <a href="{{ route('send-promotions.show', $sendPromotion->id) }}" 
-                                               class="btn btn-info btn-sm">
-                                                Detail
-                                            </a>
                                             <a href="{{ route('send-promotions.edit', $sendPromotion->id) }}"
                                                class="btn btn-warning btn-sm">
                                                 Edit
