@@ -121,7 +121,7 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{ route('employees.index') }}" class="menu-link">
+                                <a href="{{ route('send-promotions.index') }}" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-send"></i>
                                     <div>Send Promotion</div>
                                 </a>

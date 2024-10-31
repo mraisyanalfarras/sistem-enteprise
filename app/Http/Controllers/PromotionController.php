@@ -35,6 +35,7 @@ class PromotionController extends Controller
             'discount' => 'required|numeric|min:0|max:100',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
+            'is_active' => 'boolean'
         ]);
 
         Promotion::create($request->all());
@@ -61,6 +62,7 @@ class PromotionController extends Controller
             'discount' => 'required|numeric|min:0|max:100',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
+            'is_active' => 'required|boolean'
         ]);
 
         $promotion->update($request->all());

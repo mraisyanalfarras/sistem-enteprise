@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title'); // Judul promosi
             $table->text('description')->nullable(); // Deskripsi promosi
             $table->decimal('discount', 5, 2); // Diskon dalam persen
+            $table->boolean('is_active')->default(true);
             $table->date('start_date'); // Tanggal mulai promosi
             $table->date('end_date'); // Tanggal akhir promosi
             $table->timestamps();

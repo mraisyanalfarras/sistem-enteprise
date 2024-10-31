@@ -10,11 +10,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\AttendanceController;
-use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\SendPromotionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,5 @@ Route::resource('promotion', PromotionController::class);
 
 Route::resource('customer', CustomerController::class);
 
+Route::resource('send-promotions', SendPromotionController::class);
+    Route::get('send-all-promotions', [EmailController::class, 'sendPromotionEmails'])->name('send.all.promotions');

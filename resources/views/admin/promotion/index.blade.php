@@ -21,6 +21,7 @@
                 <th>Discount (%)</th>
                 <th>Start Date</th>
                 <th>End Date</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -32,6 +33,13 @@
                 <td>{{ $promotion->discount }}</td>
                 <td>{{ $promotion->start_date }}</td>
                 <td>{{ $promotion->end_date }}</td>
+                <td>
+                    @if($promotion->is_active)
+                        <span class="badge bg-success">Aktif</span>
+                    @else
+                        <span class="badge bg-danger">Tidak Aktif</span>
+                    @endif
+                </td>
                 <td>
                     {{-- <a href="{{ route('promotions.edit', $promotion->id) }}" class="btn btn-warning">Edit</a> --}}
                     <form action="{{ route('promotion.destroy', $promotion->id) }}" method="POST" style="display:inline;">

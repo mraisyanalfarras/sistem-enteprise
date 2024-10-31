@@ -40,6 +40,17 @@
             <input type="date" class="form-control" name="end_date" id="end_date" required>
         </div>
 
+        <div class="form-group mb-3">
+            <label for="is_active">Status</label>
+            <select class="form-control @error('is_active') is-invalid @enderror" id="is_active" name="is_active" required>
+                <option value="1" {{ old('is_active') == '1' ? 'selected' : '' }}>Aktif</option>
+                <option value="0" {{ old('is_active') == '0' ? 'selected' : '' }}>Tidak Aktif</option>
+            </select>
+            @error('is_active')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
         <button type="submit" class="btn btn-primary">Save Promotion</button>
     </form>
 </div>
