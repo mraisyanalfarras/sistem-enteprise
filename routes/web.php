@@ -1,17 +1,20 @@
 <?php
 
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Framework\Attributes\Test;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DepartmentController;
-use App\Mail\TestMail;
-use Illuminate\Support\Facades\Mail;
-use PHPUnit\Framework\Attributes\Test;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,14 +55,9 @@ Route::resource('leave', LeaveController::class);
 
 
 Route::resource('attendance', AttendanceController::class);
-Route::get('email', function(){
+Route::get('email', [EmailController::class, 'send']);
 
-    Mail::to('adi@gmail.com')
-    ->send(new TestMail());
-    return 'ok';
-});
+Route::resource('promotion', PromotionController::class);
 
-
-
-
+Route::resource('customer', CustomerController::class);
 

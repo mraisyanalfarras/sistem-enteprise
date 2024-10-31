@@ -6,8 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Kirim Email</h1>
+    <h3>{{$title}}</h3>
+    <p> {{ $content }}</p>
 
-    <p>Ini Adalah Contoh dari sebuah Email</p>
+    
 </body>
 </html>

@@ -9,7 +9,7 @@
     <title>Sistem Enterprise XavierVolt</title>
     <meta name="description" content="" />
 
-    <!-- Include your custom styles here -->
+    <!-- Custom Styles -->
     @include('admin.styles.style')
 
     <!-- Helpers -->
@@ -23,11 +23,10 @@
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
-            <!-- Menu -->
+            <!-- Sidebar / Menu -->
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
                     <a href="{{ route('dashboard') }}" class="app-brand-link">
-                        
                         <h1 class="h4">Sistem Enterprise XavierVolt</h1>
                     </a>
 
@@ -49,35 +48,34 @@
                             <div data-i18n="Menu 1">Human Resource</div>
                         </a>
                         <ul class="menu-sub">
-                            
-                            <li class="menu-item ">
+                            <li class="menu-item">
                                 <a href="{{ route('departments.index') }}" class="menu-link">
-                                    <i class="menu-icon tf-icons bx bx-home" style="color: #007bff;"></i>
-                                    <div>Departemant</div>
+                                    <i class="menu-icon tf-icons bx bx-building-house"></i>
+                                    <div>Department</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="{{ route('employees.index') }}" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-group"></i>
-                                    <div data-i18n="Sub Menu 2">Employees</div>
+                                    <div>Employees</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="{{ route('payroll.index') }}" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-wallet"></i>
-                                    <div data-i18n="Sub Menu 2">Payrol</div>
+                                    <div>Payroll</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                            <a href="{{ route('leave.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-calendar"></i>
-                                    <div data-i18n="Sub Menu 2">Leave</div>
+                                <a href="{{ route('leave.index') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-calendar"></i>
+                                    <div>Leave</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                            <a href="{{ route('attendance.index') }}" class="menu-link">
-                                 <i class="menu-icon tf-icons bx bx-time-five"></i>
-                                    <div data-i18n="Sub Menu 2">Attendance</div>
+                                <a href="{{ route('attendance.index') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-time-five"></i>
+                                    <div>Attendance</div>
                                 </a>
                             </li>
                         </ul>
@@ -85,28 +83,54 @@
                     <!-- User Management -->
                     <li class="menu-item">
                         <a href="#" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-user" style="color: #007bff;"></i> <!-- Ikon diubah menjadi biru -->
-                            <div style="color: #ff5733;" data-i18n="Menu 1">User Manajemen</div> <!-- Warna diubah menjadi oranye -->
+                            <i class="menu-icon tf-icons bx bx-user" style="color: #007bff;"></i>
+                            <div style="color: #ff5733;" data-i18n="Menu 1">User Management</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="{{ route('submenu1') }}" class="menu-link">
-                                    <i class="menu-icon tf-icons bx bx-group"></i> <!-- Ikon untuk Users -->
+                                    <i class="menu-icon tf-icons bx bx-group"></i>
                                     <div>Users</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="{{ route('roles.index') }}" class="menu-link">
-                                    <i class="menu-icon tf-icons bx bx-shield-alt"></i> <!-- Ikon untuk Roles -->
-                                    <div data-i18n="Sub Menu 2">Roles</div>
+                                    <i class="menu-icon tf-icons bx bx-shield-alt"></i>
+                                    <div>Roles</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
+                    <!-- Customer Relationship Management -->
+                    <li class="menu-item">
+                        <a href="#" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-home" style="color: #007bff;"></i>
+                            <div data-i18n="Menu 1">Customer Relationship Management</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('customer.index') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-user-circle" style="color: #007bff;"></i>
+                                    <div>Customer</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('promotion.index') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-megaphone"></i>
+                                    <div>Promotion</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('employees.index') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-send"></i>
+                                    <div>Send Promotion</div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </aside>
-            <!-- / Menu -->
+            <!-- / Sidebar -->
 
             <!-- Layout container -->
             <div class="layout-page">
@@ -198,7 +222,7 @@
                     <!-- Main Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
-                            @yield('content') <!-- This is where the page-specific content will go -->
+                            @yield('content') <!-- Page-specific content goes here -->
                         </div>
                     </div>
                     <!-- / Main Content -->
@@ -226,7 +250,7 @@
     </div>
     <!-- / Layout wrapper -->
 
-    <!-- Include your custom scripts here -->
+    <!-- Custom Scripts -->
     @include('admin.scripts.script')
 
 </body>
